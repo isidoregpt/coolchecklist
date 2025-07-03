@@ -3,16 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chore Checklist</title>
+  <title>Chore Checklist - Stay Organized</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#6366f1">
+  <meta name="description" content="A beautiful, modern chore checklist app to help you stay organized and productive.">
 </head>
 <body>
-  <div class="container">
-    <h1>Chore Checklist</h1>
-    <textarea id="choreInput" placeholder="Enter chores, one per line..."></textarea>
-    <button onclick="generateChecklist()">Generate Checklist</button>
-    <ul id="choreList"></ul>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <div class="logo-icon">✓</div>
+          <h1>ChoreFlow</h1>
+        </div>
+        <p class="subtitle">Stay organized, stay productive</p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="input-section">
+        <div class="input-header">
+          <h2>Create Your Checklist</h2>
+          <p>Add your chores below, one per line</p>
+        </div>
+        
+        <div class="input-container">
+          <textarea 
+            id="choreInput" 
+            placeholder="• Take out the trash&#10;• Do laundry&#10;• Clean the kitchen&#10;• Walk the dog"
+            rows="6"
+          ></textarea>
+          <div class="input-actions">
+            <button id="generateBtn" class="generate-btn" onclick="generateChecklist()">
+              <span class="btn-icon">✨</span>
+              Create Checklist
+            </button>
+            <button id="clearBtn" class="clear-btn" onclick="clearAll()">
+              <span class="btn-icon">🗑️</span>
+              Clear All
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Checklist Section -->
+      <div class="checklist-section">
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">📝</div>
+          <h3>No chores yet</h3>
+          <p>Create your first checklist to get started!</p>
+        </div>
+        
+        <div id="checklistContainer" class="checklist-container" style="display: none;">
+          <div class="checklist-header">
+            <h3>Your Chores</h3>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div id="progressFill" class="progress-fill"></div>
+              </div>
+              <span id="progressText" class="progress-text">0 of 0 completed</span>
+            </div>
+          </div>
+          <ul id="choreList" class="chore-list"></ul>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Made with ❤️ for productivity</p>
+    </footer>
   </div>
+
   <script src="app.js"></script>
 </body>
 </html>
